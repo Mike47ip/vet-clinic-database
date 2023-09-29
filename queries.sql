@@ -84,3 +84,46 @@ FROM
   animals;
 
 COMMIT;
+
+SELECT
+  COUNT(*)
+FROM
+  animals;
+
+SELECT
+  COUNT(*)
+FROM
+  animals
+WHERE
+  escape_attempts = 0;
+
+SELECT
+  AVG(weight_kg)
+FROM
+  animals;
+
+SELECT
+  neutered,
+  MAX(escape_attempts) AS max_escape_attempts mydb - # FROM animals
+GROUP BY
+  neutered;
+
+SELECT
+  species,
+  MIN(weight_kg) AS min_weight,
+  MAX(weight_kg) AS max_weight
+FROM
+  animals
+GROUP BY
+  species;
+
+SELECT
+  species,
+  AVG(escape_attempts) AS avg_escape_attempts
+FROM
+  animals
+WHERE
+  date_of_birth BETWEEN '1990-01-01'
+  AND '2000-12-31'
+GROUP BY
+  species;

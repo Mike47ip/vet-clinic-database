@@ -1,8 +1,7 @@
 BEGIN;
--- Start a Transaction:
-BEGIN
 
--- Update "species" to "unspecified" for Animals with Names Ending in "mon":
+-- Start a Transaction:
+BEGIN -- Update "species" to "unspecified" for Animals with Names Ending in "mon":
 UPDATE
   animals
 SET
@@ -11,13 +10,25 @@ WHERE
   name LIKE '%mon';
 
 UPDATE
-  6
--- Display changes to comfirm
-SELECT * FROM animals;
+  6 -- Display changes to comfirm
+SELECT
+  *
+FROM
+  animals;
 
-  -- Update "species" to "pokemon" for Animals without a Species:
+-- Update "species" to "pokemon" for Animals without a Species:
+UPDATE
+  animals BEGIN;
+
 UPDATE
   animals
+SET
+  species = 'digimon'
+WHERE
+  name LIKE '%mon';
+
+COMMIT;
+
 SET
   species = 'pokemon'
 WHERE
@@ -27,12 +38,13 @@ UPDATE
   5 -- TAKE A BREATH 
   BEGIN;
 
-  -- Display changes to comfirm
-SELECT * FROM animals;
+-- Display changes to comfirm
+SELECT
+  *
+FROM
+  animals;
 
-BEGIN
-
--- Delete Animals Born After Jan 1st, 2022:
+BEGIN -- Delete Animals Born After Jan 1st, 2022:
 DELETE FROM
   animals
 WHERE
@@ -51,11 +63,12 @@ UPDATE
   10 ROLLBACK TO SAVEPOINT before_weight_update;
 
 -- Display changes to comfirm
-SELECT * FROM animals;
+SELECT
+  *
+FROM
+  animals;
 
-ROLLBACK
-
--- Update Animals' Weights That Are Negative:
+ROLLBACK -- Update Animals' Weights That Are Negative:
 UPDATE
   animals
 SET
@@ -64,8 +77,10 @@ WHERE
   weight_kg < 0;
 
 UPDATE
-  4
--- Display changes to comfirm
-SELECT * FROM animals;
+  4 -- Display changes to comfirm
+SELECT
+  *
+FROM
+  animals;
 
 COMMIT;

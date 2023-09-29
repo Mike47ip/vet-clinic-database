@@ -23,10 +23,8 @@ SELECT
 from
   animals;
 
--- verify that change was undone
 -- Update "species" to "pokemon" for Animals without a Species:
-UPDATE
-  animals BEGIN;
+BEGIN;
 
 UPDATE
   animals

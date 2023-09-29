@@ -9,13 +9,21 @@ SET
 WHERE
   name LIKE '%mon';
 
-UPDATE
-  6 -- Display changes to comfirm
+--Implement Reviewers change
 SELECT
-  *
-FROM
+  species
+from
   animals;
 
+-- verify that change was made
+ROLLBACK;
+
+SELECT
+  species
+from
+  animals;
+
+-- verify that change was undone
 -- Update "species" to "pokemon" for Animals without a Species:
 UPDATE
   animals BEGIN;
@@ -43,6 +51,26 @@ SELECT
   *
 FROM
   animals;
+
+--implement Reviewers' changes
+BEGIN;
+
+DELETE FROM
+  animals
+WHERE
+;
+
+SELECT
+  COUNT(*)
+FROM
+  ANIMALS;
+
+ROLLBACK;
+
+SELECT
+  COUNT(*)
+FROM
+  ANIMALS;
 
 BEGIN -- Delete Animals Born After Jan 1st, 2022:
 DELETE FROM

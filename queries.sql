@@ -12,6 +12,8 @@ WHERE
 
 UPDATE
   6
+-- Display changes to comfirm
+SELECT * FROM animals;
 
   -- Update "species" to "pokemon" for Animals without a Species:
 UPDATE
@@ -24,6 +26,9 @@ WHERE
 UPDATE
   5 -- TAKE A BREATH 
   BEGIN;
+
+  -- Display changes to comfirm
+SELECT * FROM animals;
 
 BEGIN
 
@@ -45,6 +50,9 @@ SET
 UPDATE
   10 ROLLBACK TO SAVEPOINT before_weight_update;
 
+-- Display changes to comfirm
+SELECT * FROM animals;
+
 ROLLBACK
 
 -- Update Animals' Weights That Are Negative:
@@ -57,3 +65,7 @@ WHERE
 
 UPDATE
   4
+-- Display changes to comfirm
+SELECT * FROM animals;
+
+COMMIT;

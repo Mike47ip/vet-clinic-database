@@ -57,6 +57,7 @@ This repository includes files with plain SQL that can be used to recreate a dat
 
 - **[Query and update table]**
 - **[Directory]**
+- **[Query multiple tables]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

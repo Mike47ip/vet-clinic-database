@@ -112,7 +112,92 @@ WHERE
 -- Commit transaction
 COMMIT;
 
+--Move all select queries here as demanded by reviewer.
+-- Update owner_id column of the animals table
+UPDATE
+    animals
+SET
+    owner_id = (
+        SELECT
+            id
+        FROM
+            owners
+        WHERE
+            full_name = 'Sam Smith'
+    )
+WHERE
+    name = 'Agumon';
 
+    -- Update owner_id column of the animals table
+UPDATE
+    animals
+SET
+    owner_id = (
+        SELECT
+            id
+        FROM
+            owners
+        WHERE
+            full_name = 'Sam Smith'
+    )
+WHERE
+    name = 'Agumon';
+
+    UPDATE
+    animals
+SET
+    owner_id = (
+        SELECT
+            id
+        FROM
+            owners
+        WHERE
+            full_name = 'Dean Winchester'
+    )
+WHERE
+    name IN ('Angemon', 'Boarmon');
+
+    UPDATE
+    animals
+SET
+    owner_id = (
+        SELECT
+            id
+        FROM
+            owners
+        WHERE
+            full_name = 'Jennifer Orwell'
+    )
+WHERE
+    name IN ('Gabumon', 'Pikachu');
+
+    UPDATE
+    animals
+SET
+    owner_id = (
+        SELECT
+            id
+        FROM
+            owners
+        WHERE
+            full_name = 'Bob'
+    )
+WHERE
+    name IN ('Devimon', 'Plantmon');
+
+    UPDATE
+    animals
+SET
+    owner_id = (
+        SELECT
+            id
+        FROM
+            owners
+        WHERE
+            full_name = 'Melody Pond'
+    )
+WHERE
+    name IN ('Charmander', 'Squirtle', 'Blossom');
 
 SELECT
     *

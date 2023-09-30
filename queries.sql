@@ -112,19 +112,7 @@ WHERE
 -- Commit transaction
 COMMIT;
 
--- Delete all records in the animals table, then roll back the transaction.
-BEGIN;
 
-DELETE FROM
-    animals;
-
-SELECT
-    *
-FROM
-    animals;
-
--- ROLLBACK
-ROLLBACK;
 
 SELECT
     *
@@ -134,14 +122,7 @@ FROM
 -- BEGIN A TRANSACTION
 BEGIN;
 
--- Delete all animals born after Jan 1st, 2022.
-DELETE FROM
-    animals
-WHERE
-    date_of_birth > '1-1-2022';
-
---Create a savepoint
-SAVEPOINT delete_dob;
+--delete functions moved to schema as requested by reviwer here..
 
 -- Update all animals' weight to be their weight multiplied by -1.
 UPDATE

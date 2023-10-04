@@ -176,3 +176,88 @@ SET
     species_id = 1
 WHERE
     species_id IS NULL;
+
+
+    CREATE TABLE visit(
+    animal_id INT,
+    vet_id INT,
+    date_of_birth DATE,
+    PRIMARY KEY (animal_id, vet_id, date_of_birth),
+    FOREIGN KEY (animal_id) REFERENCES animals(id),
+    FOREIGN KEY (vet_id) REFERENCES vets(id)
+);
+
+
+
+-- Insert visit data
+INSERT INTO visit (animal_id, vet_id, date_of_birth)
+VALUES
+    -- Agumon's visit
+    ((SELECT id FROM animals WHERE name = 'Agumon'), 
+    (SELECT id FROM vets WHERE name = 'William Tatcher'), '2020-05-24'),
+    
+    ((SELECT id FROM animals WHERE name = 'Agumon'), 
+    (SELECT id FROM vets WHERE name = 'Stephanie Mendez'), '2020-07-22'),
+
+    -- Gabumon's visit
+    ((SELECT id FROM animals WHERE name = 'Gabumon'), 
+    (SELECT id FROM vets WHERE name = 'Jack Harkness'), '2021-02-02'),
+
+    -- Pikachu's visit
+    ((SELECT id FROM animals WHERE name = 'Pikachu'), 
+    (SELECT id FROM vets WHERE name = 'Maisy Smith'), '2020-01-05'),
+
+    ((SELECT id FROM animals WHERE name = 'Pikachu'), 
+    (SELECT id FROM vets WHERE name = 'Maisy Smith'), '2020-03-08'),
+
+    ((SELECT id FROM animals WHERE name = 'Pikachu'), 
+    (SELECT id FROM vets WHERE name = 'Maisy Smith'), '2020-05-14'),
+
+    -- Devimon's visit
+    ((SELECT id FROM animals WHERE name = 'Devimon'), 
+    (SELECT id FROM vets WHERE name = 'Stephanie Mendez'), '2021-05-04'),
+
+    -- Charmander's visit
+    ((SELECT id FROM animals WHERE name = 'Charmander'), 
+    (SELECT id FROM vets WHERE name = 'Jack Harkness'), '2021-02-24'),
+
+    -- Plantmon's visit
+    ((SELECT id FROM animals WHERE name = 'Plantmon'), 
+    (SELECT id FROM vets WHERE name = 'Maisy Smith'), '2019-12-21'),
+
+    ((SELECT id FROM animals WHERE name = 'Plantmon'), 
+    (SELECT id FROM vets WHERE name = 'William Tatcher'), '2020-08-10'),
+
+    ((SELECT id FROM animals WHERE name = 'Plantmon'), 
+    (SELECT id FROM vets WHERE name = 'Maisy Smith'), '2021-04-07'),
+
+    -- Squirtle's visit
+    ((SELECT id FROM animals WHERE name = 'Squirtle'), 
+    (SELECT id FROM vets WHERE name = 'Stephanie Mendez'), '2019-09-29'),
+
+    -- Angemon's visit
+    ((SELECT id FROM animals WHERE name = 'Angemon'), 
+    (SELECT id FROM vets WHERE name = 'Jack Harkness'), '2020-10-03'),
+
+    ((SELECT id FROM animals WHERE name = 'Angemon'), 
+    (SELECT id FROM vets WHERE name = 'Jack Harkness'), '2020-11-04'),
+
+    -- Boarmon's visit
+    ((SELECT id FROM animals WHERE name = 'Boarmon'), 
+    (SELECT id FROM vets WHERE name = 'Maisy Smith'), '2019-01-24'),
+
+    ((SELECT id FROM animals WHERE name = 'Boarmon'), 
+    (SELECT id FROM vets WHERE name = 'Maisy Smith'), '2019-05-15'),
+
+    ((SELECT id FROM animals WHERE name = 'Boarmon'), 
+    (SELECT id FROM vets WHERE name = 'Maisy Smith'), '2020-02-27'),
+
+    ((SELECT id FROM animals WHERE name = 'Boarmon'), 
+    (SELECT id FROM vets WHERE name = 'Maisy Smith'), '2020-08-03'),
+
+    -- Blossom's visit
+    ((SELECT id FROM animals WHERE name = 'Blossom'), 
+    (SELECT id FROM vets WHERE name = 'Stephanie Mendez'), '2020-05-24'),
+
+    ((SELECT id FROM animals WHERE name = 'Blossom'), 
+    (SELECT id FROM vets WHERE name = 'William Tatcher'), '2021-01-11');
